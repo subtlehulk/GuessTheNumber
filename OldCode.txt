@@ -1,0 +1,63 @@
+//Old code will be going here.
+
+
+/*******************************
+        VERSION 1.0
+*******************************/
+//This is a basic Guess the Number game.
+//It runs through once, tells you the output and then stops.
+Random ran = new Random();
+        int number = ran.Next(1,11);
+
+        string input = Console.ReadLine();
+        int guess = Convert.ToInt32(input);
+
+        if (guess == number) {
+            System.Console.WriteLine("Congrats, you guess it correctly. The number was {0}", number);
+
+        }
+        else {
+            System.Console.WriteLine("Ugh, better luck next time!");
+            System.Console.WriteLine("The number was {0}", number);
+        }
+
+/*********************************
+        Version 2.0
+*********************************/
+//This version checks to see if the user wants to play the game
+//and incorporates the game itself in a separate method 
+    {
+        System.Console.WriteLine("Would you like to play Guess the Number?");
+        string play = Console.ReadLine();
+        if (play == "y" || play ==  "Y" || play == "yes" || play == "Yes") {
+            PlayGame();
+        }
+        else {
+            System.Console.WriteLine("Alright, maybe next time!");
+        }   
+    }
+
+    private static void PlayGame() {
+        System.Console.WriteLine("Pick a number between 1-10.");
+        Random ran = new Random();
+        int number = ran.Next(1,11);
+
+        string input = Console.ReadLine();
+        int guess = Convert.ToInt32(input);
+        if (guess == number) {
+            System.Console.WriteLine("Congrats, you guess it correctly. The number was {0}", number);
+
+        }
+        else {
+            System.Console.WriteLine("Ugh, better luck next time!");
+            System.Console.WriteLine("The number was {0}", number);
+        }
+        
+    }
+
+/************************************
+        Version 2.5
+************************************/
+
+//This version adds a while loop so that the user can keep playing the game 
+//until they don't want to anymore.
