@@ -6,8 +6,10 @@
 *******************************/
 //This is a basic Guess the Number game.
 //It runs through once, tells you the output and then stops.
-Random ran = new Random();
-        int number = ran.Next(1,11);
+        //create a new instance of Random
+        Random ran = new Random();
+        //create an int to hold the random number between 1 and 10 using the .Next() method 
+        int number = ran.Next(1,11); //.Next(x,y) x being starting from and including, y being up to but NOT including (y - 1) in this case it is 11 - 1 which is 10.
 
         string input = Console.ReadLine();
         int guess = Convert.ToInt32(input);
@@ -61,3 +63,35 @@ Random ran = new Random();
 
 //This version adds a while loop so that the user can keep playing the game 
 //until they don't want to anymore.
+{
+        System.Console.WriteLine("Would you like to play Guess the Number?");
+        string play = Console.ReadLine();
+        while ((play == "y" || play ==  "Y" || play == "yes" || play == "Yes"))
+        {
+            PlayGame();
+            System.Console.WriteLine("Would you like to play again?");
+            play = Console.ReadLine();
+        }
+        System.Console.WriteLine("Alright, catch you next time!");
+
+        
+        
+    }
+
+    private static void PlayGame() {
+        System.Console.WriteLine("Pick a number between 1-10.");
+        Random ran = new Random();
+        int number = ran.Next(1,11);
+
+        string input = Console.ReadLine();
+        int guess = Convert.ToInt32(input);
+        if (guess == number) {
+            System.Console.WriteLine("Congrats, you guess it correctly. The number was {0}", number);
+
+        }
+        else {
+            System.Console.WriteLine("Ugh, better luck next time!");
+            System.Console.WriteLine("The number was {0}", number);
+        }
+        
+    }
