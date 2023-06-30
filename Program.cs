@@ -75,6 +75,9 @@ class Program
             //store the random number in an int
             int number = ran.Next(1,11);
 
+            //Print the prompt to screen
+            System.Console.WriteLine("Pick a number between 1-10.");
+
             System.Console.WriteLine("Player 1: ");
             input = Console.ReadLine();
             newPlayer1.guess = Convert.ToInt32(input);
@@ -89,7 +92,7 @@ class Program
             if (p1Diff < p2Diff) {
                 System.Console.WriteLine("Player 1 is closest!");
             }
-            else if (p1Diff > p2Diff) {
+            else if (p2Diff < p1Diff) { 
                 System.Console.WriteLine("Player 2 is closest!");
             }
             
@@ -107,6 +110,9 @@ class Program
             Random ran = new Random();
             //store the random number in an int
             int number = ran.Next(1,11);
+
+            //Print the prompt to screen
+            System.Console.WriteLine("Pick a number between 1-10.");
 
             System.Console.WriteLine("Player 1: ");
             input = Console.ReadLine();
@@ -151,6 +157,58 @@ class Program
             Player newPlayer2 = new Player("Player 2");
             Player newPlayer3 = new Player("Player 3");
             Player newPlayer4 = new Player("Player 4");
+
+            //create a new instance of Random
+            Random ran = new Random();
+            //store the random number in an int
+            int number = ran.Next(1,11);
+
+            //Print the prompt to screen
+            System.Console.WriteLine("Pick a number between 1-10.");
+
+            System.Console.WriteLine("Player 1: ");
+            input = Console.ReadLine();
+            newPlayer1.guess = Convert.ToInt32(input);
+            System.Console.WriteLine("Player 2: ");
+            input = Console.ReadLine();
+            newPlayer2.guess = Convert.ToInt32(input);
+            System.Console.WriteLine("Player 3: ");
+            input = Console.ReadLine();
+            newPlayer3.guess = Convert.ToInt32(input);
+            System.Console.WriteLine("Player 4: ");
+            input = Console.ReadLine();
+            newPlayer4.guess = Convert.ToInt32(input);
+
+            int p1Diff = number - newPlayer1.guess;
+            if (p1Diff < 0) {
+                p1Diff = Math.Abs(p1Diff);
+            }
+            int p2Diff = number - newPlayer2.guess;
+            if (p2Diff < 0) {
+                p2Diff = Math.Abs(p2Diff);
+            }
+            int p3Diff = number - newPlayer3.guess;
+            if (p3Diff < 0) {
+                p3Diff = Math.Abs(p3Diff);
+            }
+            int p4Diff = number - newPlayer4.guess;
+            if (p4Diff < 0) {
+                p4Diff = Math.Abs(p4Diff);
+            }
+
+            System.Console.WriteLine("The number was {0}.", number);
+            if (p1Diff < p2Diff && p1Diff < p3Diff || newPlayer1.guess == number) {
+                System.Console.WriteLine("Player 1 is closest!");
+            }
+            else if (p2Diff < p1Diff && p2Diff < p3Diff || newPlayer2.guess == number) {
+                System.Console.WriteLine("Player 2 is closest!");
+            }
+            else if (p3Diff < p1Diff && p3Diff < p2Diff || newPlayer3.guess == number) {
+                System.Console.WriteLine("Player 3 is the closest!");
+            }
+            else if (p4Diff < p1Diff && p4Diff < p2Diff  && p4Diff < p3Diff || newPlayer3.guess == number) {
+                System.Console.WriteLine("Player 4 is the closest!");
+            }
 
         }
         else {
